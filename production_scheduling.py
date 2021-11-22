@@ -773,7 +773,7 @@ def visualize(process_time, start_time) -> None:
     time_lbl = Label(font=pygame.font.SysFont("Arial", 24, bold=True), pos=(25, 534))
     content.add_child(time_lbl)
 
-    speed_slider = Slider((150, 25), range=(0, 10), step=0.25, default=1, pos=(835, 15))
+    speed_slider = Slider((150, 25), range=(0, 6), step=0.125, default=1, pos=(835, 15))
     content.add_child(speed_slider)
 
     speed_lbl = Label(
@@ -784,7 +784,7 @@ def visualize(process_time, start_time) -> None:
     content.add_child(speed_lbl)
 
     def handle_speed_changed(value):
-        speed_lbl._text = f"{round(value, 2)}x"
+        speed_lbl._text = f"{round(value, 3)}x"
         speed_lbl.repaint()
         width, _ = speed_lbl.get_size()
         speed_lbl.pos = (speed_slider.pos[0] - (width + 10), 12)
@@ -872,6 +872,6 @@ def visualize(process_time, start_time) -> None:
 
 
 if __name__ == "__main__":
-    p = read_excel("test.xlsx", "b2:e4")
-    s = read_excel("test.xlsx", "b7:e9")
+    p = read_excel("example.xlsx", "b2:e4", "Book2Problem")
+    s = read_excel("example.xlsx", "b7:e9", "Book2Problem")
     visualize(p, s)
