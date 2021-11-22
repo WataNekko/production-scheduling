@@ -1,3 +1,11 @@
+"""
+NOTE:
+    Dependencies:
+        numpy
+        openpyxl
+        pygame
+"""
+
 from __future__ import annotations
 import numpy as np
 
